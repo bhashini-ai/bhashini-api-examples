@@ -1,42 +1,43 @@
-### Python clients for calling Bhashini.ai Speech Recognition (ASR/STT) API
-* **ASRClient.python** is synchronous wrapper (blocking version using requests).
-* **ASRClientAsync.python** is async-friendly (using httpx + asyncio), so that multiple audio uploads can be processed concurrently.
+# Python Clients for Bhashini.ai Speech Recognition (ASR/STT) API
 
-### Pre-requisites for using ASRClient.python
+This repository provides two Python clients to interact with the **Bhashini.ai Speech Recognition (ASR/STT) API**:
 
-1) Install ffmpeg on the system:
+- **`ASRClient.py`** — A synchronous client (blocking), implemented with `requests`.
+- **`ASRClientAsync.py`** — An asynchronous client, implemented with `httpx` + `asyncio`, allowing concurrent audio uploads.
+
+---
+
+## Prerequisites
+
+Both clients require **FFmpeg** and specific Python libraries.
+
+### 1. Install FFmpeg
 ```bash
-sudo apt update && sudo apt install ffmpeg -y
+sudo apt update && sudo apt install ffmpeg
 ```
 
-2) Install Python libraries
-```bash
-pip install soundfile librosa ffmpeg-python requests
-```
+### 2. Install Python dependencies
+* For **synchronous client** (`ASRClient.py`):
+    ```bash
+    pip install soundfile librosa ffmpeg-python requests
+    ```
 
-3) Edit and replace YOUR_API_KEY_HERE with your Bhashini.ai API Key
+* For **asynchronous client** (`ASRClientAsync.py`):
+    ```bash
+    pip install soundfile librosa ffmpeg-python httpx
+    ```
 
-4) Run:
-```bash
-python ASRClient.python
-```
+## Usage
+1. Open the desired client file (`ASRClient.py` or `ASRClientAsync.py`).
+2. Replace `YOUR_API_KEY_HERE` with your **Bhashini.ai API Key**.
+3. Specify the path(s) of your audio files.
+4. Run the client:
+    * **Synchronous**:
+        ```bash
+        python ASRClient.py
+        ```
 
-
-### Pre-requisites for using ASRClientAsync.python:
-1) Install ffmpeg on the system:
-
-```bash
-sudo apt update && sudo apt install ffmpeg -y
-```
-
-2) Install Python libraries
-```bash
-pip install soundfile librosa ffmpeg-python httpx
-```
-
-3) Edit and replace YOUR_API_KEY_HERE with your Bhashini.ai API Key
-
-4) Run:
-```bash
-python ASRClientAsync.python
-```
+    * **Asynchronous**:
+        ```bash
+        python ASRClientAsync.py
+        ```
