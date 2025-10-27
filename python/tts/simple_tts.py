@@ -1,7 +1,6 @@
 import os
 import json
 import requests
-import base64
 
 # === CONFIGURATION ===
 BASE_URL = "https://tts.bhashini.ai"
