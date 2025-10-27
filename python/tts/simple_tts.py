@@ -5,7 +5,7 @@ import requests
 # === CONFIGURATION ===
 BASE_URL = "https://tts.bhashini.ai"
 API_KEY = os.getenv("BHASHINI_API_KEY", "<YOUR_API_KEY>")
-OUTPUT_FILE = "tts_output.wav"
+OUTPUT_FILE = "tts_output.mp3"
 
 # Common headers
 headers = {
