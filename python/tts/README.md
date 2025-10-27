@@ -31,10 +31,6 @@ Open ```simple_tts.py``` in a text editor and update the following variables:
 
 ```bash
 
-text = "सौर मंडल में सूर्य और वह खगोलीय पिंड सम्मलित हैं, जो इस मंडल में एक दूसरे से गुरुत्वाकर्षण बल द्वारा बंधे हैं।"
-    lang = "Hindi"
-    voice = "Male1"
-
 OUTPUT_FILE = "output.mp3"          # Path of file where TTS output will be saved
 text = "सौर मंडल में सूर्य और वह खगोलीय पिंड सम्मलित हैं, जो इस मंडल में एक दूसरे से गुरुत्वाकर्षण बल द्वारा बंधे हैं।"  # Input text for synthesis
 lang = "Hindi"                      # Language of the input text
