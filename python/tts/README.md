@@ -37,10 +37,7 @@ lang = "Hindi"                      # Language of the input text
 voice = "Male1"                  # TTS voice name
 ```
 
-You can fetch a list of available voices from:
-```
-https://tts.bhashini.ai/tessdata_fast/tts_voices.json
-```
+You can fetch the list of available voices from [here](https://app.bhashini.ai/voices.json).
 
 ### Run the Program
 Execute the script:
