@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhashini.ai Streaming Speech Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Bhashini.ai API Example</p>
+          <h1>Streaming speech-to-text in plain HTML + JavaScript</h1>
+          <p class="hero-text">
+            This sample shows how to capture microphone audio, stream raw PCM over WebSocket,
+            and keep a text area updated with interim and final transcripts. It can also be re-used 
+            in any web-app based on Vue, React, Angular, or any other framework.
+          </p>
+        </div>
+      </section>
+
+      <section class="demo-card">
+        <div class="demo-grid">
+          <label class="field">
+            <span>API key</span>
+            <input id="apiKeyInput" type="password" placeholder="Enter your 32-character Bhashini API key" autocomplete="off" spellcheck="false" autocapitalize="off" />
+          </label>
+
+          <label class="field">
+            <span>Language</span>
+            <select id="languageSelect">
+              <option value="Assamese">Assamese</option>
+              <option value="Bengali">Bengali</option>
+              <option value="Bodo">Bodo</option>
+              <option value="Dogri">Dogri</option>
+              <option value="English">English</option>
+              <option value="Gujarati">Gujarati</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Kannada">Kannada</option>
+              <option value="Kashmiri">Kashmiri</option>
+              <option value="Konkani">Konkani</option>
+              <option value="Maithili">Maithili</option>
+              <option value="Malayalam">Malayalam</option>
+              <option value="Manipuri">Manipuri</option>
+              <option value="Marathi">Marathi</option>
+              <option value="Nepali">Nepali</option>
+              <option value="Odia">Odia</option>
+              <option value="Punjabi">Punjabi</option>
+              <option value="Sanskrit">Sanskrit</option>
+              <option value="Santali">Santali</option>
+              <option value="Sindhi">Sindhi</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Telugu">Telugu</option>
+              <option value="Urdu">Urdu</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field field-stack" for="transcriptTextArea">
+          <span>Transcript</span>
+          <div class="textarea-wrap">
+            <textarea
+              id="transcriptTextArea"
+              rows="10"
+              placeholder="Click Start voice input and begin speaking..."
+            ></textarea>
+            <button id="toggleButton" class="mic-button" type="button" aria-label="Start voice input">
+              <span id="toggleButtonIcon">🎙️</span>
+            </button>
+          </div>
+        </label>
+
+        <div class="actions-row">
+          <button id="startButton" class="primary-button" type="button">Start voice input</button>
+          <button id="stopButton" class="secondary-button" type="button" disabled>Stop</button>
+          <button id="clearButton" class="ghost-button" type="button">Clear text</button>
+        </div>
+
+        <div class="status-panel">
+          <div>
+            <span class="status-label">Connection</span>
+            <strong id="statusText">Idle</strong>
+          </div>
+          <div>
+            <span class="status-label">Interim updates</span>
+            <strong id="interimText">Waiting</strong>
+          </div>
+        </div>
+
+        <p id="errorText" class="error-text" hidden></p>
+      </section>
+
+      <section class="notes-card">
+        <h2>How to reuse this</h2>
+        <ul>
+          <li>Copy <code>streaming-speech-client.js</code> and <code>pcm-capture.worklet.js</code> into your project.</li>
+          <li>Create a <code>StreamingSpeechClient</code> instance with your API key, language, and callbacks.</li>
+          <li>Wire the client into your own UI components, forms, or state management.</li>
+        </ul>
+        <p class="note-text">
+          This demo must be served from <code>http://</code> or <code>https://</code> so microphone access and AudioWorklet loading can work correctly. The API key field should contain only your 32-character Bhashini API key, not a server URL.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="./streaming-speech-demo.js"></script>
+  </body>
+</html>
