@@ -24,7 +24,7 @@ const client = new StreamingSpeechClient({
   },
   onFinalTranscript: (transcript) => {
     interimText.textContent = "Waiting";
-    applyFinalTranscript(transcript);
+    applyFinalTranscript(addSentenceStopIfNeeded(transcript));
   },
   onStatusChange: (status) => {
     statusText.textContent = status;
@@ -60,6 +60,20 @@ function normalizeTranscriptInsertion(transcript, baseText, start) {
     return transcript;
   }
   return ` ${transcript}`;
+}
+
+function addSentenceStopIfNeeded(transcript) {
+  const normalizedTranscript = typeof transcript === "string" ? transcript.trim() : "";
+  if (!normalizedTranscript) {
+    return "";
+  }
+  if (languageSelect.value === "English") {
+    return normalizedTranscript;
+  }
+  if (/[.!?।]$/.test(normalizedTranscript)) {
+    return normalizedTranscript;
+  }
+  return `${normalizedTranscript}.`;
 }
 
 function applyValue(nextValue, nextCaretPosition = null) {
